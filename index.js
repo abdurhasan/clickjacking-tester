@@ -29,7 +29,7 @@ function checkUrl(site) {
     return new Promise((resolve, reject) => {
         urllib.request(site).then(function (result) {
             const Header = JSON.stringify(result.res.headers)
-            const XFrame = !/x-frame-options/i.test(Header)
+            const XFrame = /x-frame-options/i.test(Header)
             resolve(XFrame)
 
         }).catch(function (err) {
